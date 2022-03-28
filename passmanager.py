@@ -86,3 +86,14 @@ if sys.argv[1] == "delete" :
         print("Key Removed")
     with open("passwords.dat", "wb") as file_secret:
         pickle.dump(secretsData, file_secret)
+
+
+# Add File secret
+if sys.argv[1] == "add-file" :
+    name = sys.argv[2] if len(sys.argv) == 4 else input("Name: ")
+    filePath = sys.argv[3] if len(sys.argv) == 4 else input("Path: ")
+    with open(filePath, "rb") as file_secret:
+        data = file_secret.read()
+    secretsData[name] = password_encrypt(data, masterPass)
+    with open("passwords.dat", "wb") as file_secret:
+        pickle.dump(secretsData, file_secret)
