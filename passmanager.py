@@ -86,9 +86,3 @@ if sys.argv[1] == "delete" :
         print("Key Removed")
     with open("passwords.dat", "wb") as file_secret:
         pickle.dump(secretsData, file_secret)
-
-    
-
-
-
-
